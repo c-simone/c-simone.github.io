@@ -39,7 +39,8 @@ a, table.table a {
 // Profile
 
 .profile {
-  margin-left: 1rem;
+  margin-right: 2rem;
+  margin-bottom: 3rem;
   width: 100%;
 
   .address {
@@ -56,7 +57,7 @@ a, table.table a {
 
 @media (min-width: 576px) {
   .profile {
-    width: 30%;
+    width: 25%;
     .address {
       p { display: block; }
     }
@@ -165,13 +166,15 @@ a, table.table a {
   color: var(--global-text-color);
 }
 
-// Social (bottom)
+// Social
 
 .social {
-  text-align: center;
+  text-align: left;
+  padding-bottom: 0.5rem;
   .contact-icon {
-    font-size: 4rem;
+    font-size: 1.5rem;
     a {
+      padding: 0.1rem 1.0rem 0.1rem 0.0rem;
       color: var(--global-icon-color);
       &:hover {
         color: var(--global-theme-color);
@@ -180,6 +183,12 @@ a, table.table a {
   }
   .contact-note {
     font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 576px) {
+  .social {
+    text-align: right;
   }
 }
 
@@ -367,6 +376,7 @@ footer.sticky-bottom {
         a.btn {
           color: var(--global-text-color);
           border: 1px solid var(--global-text-color);
+          margin-left: 0.0rem;
           padding-left: 1rem;
           padding-right: 1rem;
           padding-top: 0.25rem;
