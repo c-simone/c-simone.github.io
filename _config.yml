@@ -1,0 +1,34 @@
+baseurl: ""
+url: "https://c-simone.github.io"
+title: "Simone Conia | Assistant Professor | NLP & Large Language Models Research"
+description: "Personal academic website of Simone Conia, Assistant Professor at Sapienza University of Rome specializing in Large Language Models, Multilingual NLP, and Retrieval Augmented Generation."
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Exclude files from build
+exclude:
+  - README.md
+  - LICENSE
+  - .gitignore
+
+# Plugins (if you want to use any Jekyll plugins later)
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+
+# SEO settings
+author: Simone Conia
+twitter:
+  username: @ConiaSimone
+  card: summary
+
+social:
+  name: Simone Conia
+  links:
+    - https://scholar.google.com/citations?user=5C4gTY4AAAAJ
+    - https://linkedin.com/in/simone-conia
+    - https://github.com/simone-conia
+    - https://twitter.com/ConiaSimone
+    - https://huggingface.co/s-conia

@@ -1,0 +1,375 @@
+/* Custom Styles for Simone Conia Personal Website */
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.gradient-bg {
+    background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 50%, #f0f9ff 100%);
+}
+
+.dark .gradient-bg {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+}
+
+.floating {
+    animation: floating 6s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+.scroll-indicator {
+    transition: all 0.3s ease;
+}
+
+.section-fade {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 50%;
+    background-color: #14b8a6;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.publication-card {
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.publication-card:hover {
+    border-left-color: #14b8a6;
+    transform: translateX(8px);
+}
+
+.timeline-item {
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 8px;
+    width: 16px;
+    height: 16px;
+    background-color: #14b8a6;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 3px #14b8a6;
+}
+
+.dark .timeline-item::before {
+    border-color: #1e293b;
+}
+
+.research-card {
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.05) 0%, rgba(255, 255, 255, 0.8) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(20, 184, 166, 0.1);
+}
+
+.dark .research-card {
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(30, 41, 59, 0.8) 100%);
+    border: 1px solid rgba(20, 184, 166, 0.2);
+}
+
+.theme-toggle {
+    position: relative;
+    width: 50px;
+    height: 26px;
+    background: #e5e7eb;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dark .theme-toggle {
+    background: #374151;
+}
+
+.theme-toggle::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 22px;
+    height: 22px;
+    background: white;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dark .theme-toggle::before {
+    transform: translateX(24px);
+    background: #1f2937;
+}
+
+.theme-toggle-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+    opacity: 0.7;
+}
+
+.theme-toggle-sun {
+    left: 6px;
+    color: #f59e0b;
+}
+
+.theme-toggle-moon {
+    right: 6px;
+    color: #6b7280;
+}
+
+.dark .theme-toggle-sun {
+    opacity: 0.3;
+}
+
+.dark .theme-toggle-moon {
+    opacity: 1;
+    color: #14b8a6;
+}
+
+/* Grid Background */
+.grid-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.dark .grid-background {
+    opacity: 0.6;
+}
+
+.grid-container {
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(20, 184, 166, 0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20, 184, 166, 0.3) 1px, transparent 1px);
+    background-size: 50px 50px;
+    position: relative;
+}
+
+.dark .grid-container {
+    background-image: 
+        linear-gradient(rgba(20, 184, 166, 0.2) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20, 184, 166, 0.2) 1px, transparent 1px);
+}
+
+.grid-trail {
+    position: absolute;
+    width: 2px;
+    height: 200px;
+    background: linear-gradient(to bottom, transparent, rgba(20, 184, 166, 0.8), transparent);
+    border-radius: 1px;
+    opacity: 0;
+}
+
+.dark .grid-trail {
+    background: linear-gradient(to bottom, transparent, rgba(20, 184, 166, 1), transparent);
+    box-shadow: 0 0 10px rgba(20, 184, 166, 0.5);
+}
+
+.grid-trail-horizontal {
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, rgba(20, 184, 166, 0.8), transparent);
+}
+
+.dark .grid-trail-horizontal {
+    background: linear-gradient(to right, transparent, rgba(20, 184, 166, 1), transparent);
+    box-shadow: 0 0 10px rgba(20, 184, 166, 0.5);
+}
+
+/* Grid Tiles for Mouse Proximity Effect */
+.grid-tile {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: 1px solid rgba(20, 184, 166, 0.1);
+    background-color: rgba(20, 184, 166, 0);
+    transition: all 0.3s ease-out;
+    pointer-events: none;
+}
+
+.dark .grid-tile {
+    border-color: rgba(20, 184, 166, 0.15);
+}
+
+.grid-tile.hover-near {
+    background-color: rgba(20, 184, 166, 0.1);
+    border-color: rgba(20, 184, 166, 0.3);
+    box-shadow: 0 0 15px rgba(20, 184, 166, 0.2);
+}
+
+.dark .grid-tile.hover-near {
+    background-color: rgba(20, 184, 166, 0.15);
+    border-color: rgba(20, 184, 166, 0.4);
+    box-shadow: 0 0 20px rgba(20, 184, 166, 0.3);
+}
+
+.grid-tile.hover-close {
+    background-color: rgba(20, 184, 166, 0.2);
+    border-color: rgba(20, 184, 166, 0.5);
+    box-shadow: 0 0 25px rgba(20, 184, 166, 0.4);
+    transform: scale(1.05);
+}
+
+.dark .grid-tile.hover-close {
+    background-color: rgba(20, 184, 166, 0.25);
+    border-color: rgba(20, 184, 166, 0.6);
+    box-shadow: 0 0 30px rgba(20, 184, 166, 0.5);
+}
+
+/* Statistics Charts */
+.stats-chart {
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.05) 0%, rgba(255, 255, 255, 0.9) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(20, 184, 166, 0.1);
+}
+
+.dark .stats-chart {
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(30, 41, 59, 0.9) 100%);
+    border: 1px solid rgba(20, 184, 166, 0.2);
+}
+
+.chart-bar {
+    background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.chart-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.chart-bar:hover::before {
+    left: 100%;
+}
+
+.chart-bar-vertical {
+    background: linear-gradient(to top, #14b8a6 0%, #0d9488 100%);
+    border-radius: 4px 4px 0 0;
+    transition: all 0.8s ease;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(20, 184, 166, 0.2);
+}
+
+.chart-bar-vertical::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.chart-bar-vertical:hover::before {
+    left: 100%;
+}
+
+.award-count {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.company-logo {
+    transition: all 0.3s ease;
+    filter: grayscale(20%);
+    opacity: 0.8;
+}
+
+.company-logo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.dark .company-logo {
+    filter: grayscale(40%) brightness(0.9);
+}
+
+.dark .company-logo:hover {
+    filter: grayscale(0%) brightness(1);
+}
+
+.achievement-card {
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.05) 0%, rgba(255, 255, 255, 0.8) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(20, 184, 166, 0.1);
+    transition: all 0.3s ease;
+}
+
+.dark .achievement-card {
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(30, 41, 59, 0.8) 100%);
+    border: 1px solid rgba(20, 184, 166, 0.2);
+}
+
+.achievement-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(20, 184, 166, 0.15);
+}
+
+.dark .achievement-card:hover {
+    box-shadow: 0 10px 25px rgba(20, 184, 166, 0.2);
+}
+
+/* Chart container styles */
+.chart-container {
+    position: relative;
+    height: 100%;
+    background: rgba(20, 184, 166, 0.05);
+    border-radius: 4px;
+}
+
+.dark .chart-container {
+    background: rgba(20, 184, 166, 0.1);
+}
