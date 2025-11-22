@@ -1,275 +1,297 @@
-# Simone Conia - Academic Website
+# Personal Website - Simone Conia
 
-A modern, minimal academic website built with Tailwind CSS and anime.js, designed specifically for researchers and academics. Features smooth animations, responsive design, and GitHub Pages compatibility.
+A modern, responsive personal portfolio website built with Tailwind CSS, anime.js, and vanilla JavaScript ES6 modules.
 
-## Features
+## 🌟 Features
 
-- **Modern Design**: Clean, minimal design with teal accents and subtle color palette
-- **Dark/Light Mode**: Smooth animated toggle between light and dark themes with system preference detection
-- **Smooth Animations**: Powered by anime.js for elegant transitions and interactions
-- **Responsive Layout**: Optimized for desktop, tablet, and mobile devices
-- **GitHub Pages Ready**: Static HTML/CSS/JS for easy deployment
-- **Academic Sections**:
-  - Hero section with profile photo and social links
-  - About section highlighting research interests
-  - Current research overview with interactive cards
-  - Publications showcase with hover effects
-  - Experience and education timeline
-  - Contact section with research interests tags
-- **Interactive Navigation**: Smooth scrolling with active state indicators and mobile menu
-- **SEO Optimized**: Proper meta tags and semantic HTML structure
-- **Performance Focused**: Lightweight with CDN-based dependencies
+- **Responsive Design**: Optimized for all devices from mobile to desktop
+- **Dark/Light Mode**: Smooth theme switching with localStorage persistence
+- **Interactive Animations**: Scroll-triggered animations using anime.js and Intersection Observer
+- **Animated Grid Background**: Mouse proximity effects for engaging user experience
+- **Citation Statistics**: Dynamic chart visualization powered by data configuration
+- **Modular Architecture**: Clean, maintainable ES6 module structure
+- **Icon Library**: Tabler Icons for consistent, scalable iconography
+- **GitHub Pages Compatible**: Simple static site deployment
 
-## Tech Stack
+## 📁 Project Structure
 
-- **HTML5**: Semantic markup
-- **Tailwind CSS**: Utility-first CSS framework (via CDN)
-- **Anime.js**: Lightweight animation library (via CDN)
-- **Inter Font**: Modern, readable typography
-
-## Live Demo
-
-Visit the live website: [https://c-simone.github.io/](https://c-simone.github.io/)
-
-## Quick Setup
-
-### 1. Enable GitHub Pages
-
-1. Go to your repository settings
-2. Scroll to "Pages" section
-3. Select "Deploy from a branch"
-4. Choose "main" branch and "/ (root)" folder
-5. Your site will be available at `https://yourusername.github.io/repository-name`
-
-### 2. Customize Content
-
-The website is designed for Simone Conia but can be easily customized:
-
-#### Personal Information
-
-- Replace profile photo in `assets/profile_pic.jpg`
-- Update name, title, and affiliation in the hero section
-- Modify research interests and about section content
-- Update social media links (Google Scholar, LinkedIn, GitHub, Email)
-
-#### Research Content
-
-- Edit the "Current Research" section with your research areas
-- Update the "Publications" section with your papers
-- Modify the "Experience & Education" timeline
-- Adjust research interest tags in the contact section
-
-#### Styling
-
-- The site uses a teal accent color (`#14b8a6`) which can be changed in the Tailwind config
-- Animations can be customized in the JavaScript section
-- Layout and spacing can be adjusted using Tailwind utility classes
-
-#### `styles.css`
-
-- Customize colors in the `:root` CSS variables if desired
-- Adjust fonts or spacing as needed
-
-#### `script.js`
-
-- The animations should work out of the box
-- Customize watercolor colors if desired
-
-### 3. Local Development
-
-To preview the site locally:
-
-1. Open `index.html` in your web browser
-2. Or use a simple HTTP server:
-
-   ```bash
-   # Using Python
-   python -m http.server 8000
-   
-   # Using Node.js
-   npx serve .
-   
-   # Using PHP
-   php -S localhost:8000
-   ```
-
-3. Navigate to `http://localhost:8000`
-
-### 4. Deployment to GitHub Pages
-
-1. Push your changes to the main branch
-2. Go to repository Settings → Pages
-3. Select "Deploy from a branch" and choose "main"
-4. Your site will be live at `https://yourusername.github.io/repository-name`
-
-## Customization Guide
-
-This guide provides an overview of the modular structure of the personal website, detailing how to customize and extend it for your own academic profile.
-
-### Structure Overview
-
-The website is organized into a modular structure for better maintainability and scalability. The main components are:
-
-- **HTML**: Main structure and content
-- **CSS**: All custom styles consolidated into a single stylesheet
-- **JavaScript**: Modular scripts for functionality and animations
-- **Assets**: Images and other static files
-
-```plaintext
-personal-website/
-├── index.html              # Main HTML file (482 lines, reduced from 1162)
-├── favicon.svg
-├── robots.txt
-├── assets/
-│   └── profile_pic.jpg
+```
+.
+├── index.html              # Main HTML file
+├── _config.yml            # Jekyll/GitHub Pages configuration
 ├── css/
-│   └── styles.css          # All custom CSS styles
-└── js/
-    ├── main.js             # Core navigation and initialization
-    ├── theme.js            # Theme management system
-    ├── grid-animation.js   # Interactive grid background
-    └── animations.js       # Page animations and effects
+│   └── styles.css         # Custom styles and animations
+├── js/
+│   ├── config.js          # Centralized configuration (data, settings, selectors)
+│   ├── utils.js           # Reusable utility functions and helpers
+│   ├── components.js      # Core UI components (Navigation, Theme, Grid)
+│   ├── app.js             # Application initialization and animations
+│   └── old/               # Backup of original JavaScript files
+├── assets/
+│   └── profile_pic.jpeg   # Profile image
+├── build.sh               # Development build script
+├── robots.txt             # SEO robots file
+└── sitemap.xml            # SEO sitemap
 ```
 
-### CSS Module
+## 🚀 Getting Started
 
-- **`css/styles.css`**: Contains all custom CSS styles previously embedded in the HTML
-  - Layout styles (gradient backgrounds, floating animations)
-  - Component styles (navigation, cards, timeline)
-  - Theme-specific styles (dark/light mode)
-  - Grid background and animation styles
+### Local Development
 
-### JavaScript Modules
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/c-simone/c-simone.github.io.git
+   cd c-simone.github.io
+   ```
 
-#### `js/main.js`
+2. **Serve locally**
+   ```bash
+   # Using Python 3
+   python3 -m http.server 8000
+   
+   # Or using the build script
+   bash build.sh
+   ```
 
-- Core navigation functionality
-- Mobile menu management
-- Smooth scrolling
-- Active navigation highlighting
-- Main initialization
+3. **Open in browser**
+   Navigate to `http://localhost:8000`
 
-#### `js/theme.js`
+### GitHub Pages Deployment
 
-- Theme management system (ThemeManager class)
-- Dark/light mode toggle
-- Theme persistence in localStorage
-- System theme preference detection
-- Smooth theme transitions
+The site is automatically deployed to GitHub Pages when you push to the main branch.
 
-#### `js/grid-animation.js`
+- **Live URL**: https://c-simone.github.io
+- No build step required - pure static HTML/CSS/JS
 
-- Interactive grid background system
-- Mouse proximity effects
-- Performance-optimized animations
-- Responsive grid resizing
+## 🛠️ Technology Stack
 
-#### `js/animations.js`
+- **HTML5** - Semantic markup
+- **Tailwind CSS** (CDN) - Utility-first CSS framework
+- **JavaScript ES6 Modules** - Modern, modular code organization
+- **anime.js** - Powerful animation library
+- **Tabler Icons** - Beautiful icon set
+- **Urbanist Font** - Clean, modern typography
+- **GitHub Pages** - Free static site hosting
 
-- Page load animations (PageAnimations class)
-- Scroll-triggered animations
-- Card hover effects
-- Timeline animations
+## 📝 Configuration
+
+### Updating Content
+
+#### Citation Data
+Edit `js/config.js`:
+```javascript
+citations: {
+    byYear: [
+        { year: 2025, count: 570 },
+        // Add more years...
+    ],
+    stats: {
+        totalCitations: "1,370",
+        hIndex: 16,
+        i10Index: 23
+    }
+}
+```
+
+#### Animation Settings
+Modify timing and easing in `js/config.js`:
+```javascript
+animations: {
+    durations: {
+        fast: 300,
+        normal: 800,
+        slow: 1200
+    },
+    easing: {
+        default: 'easeOutExpo',
+        smooth: 'easeInOutQuad'
+    }
+}
+```
+
+#### Site Metadata
+Update `_config.yml` for Jekyll/SEO settings:
+```yaml
+title: "Your Name | Title"
+description: "Your description"
+url: "https://your-username.github.io"
+```
+
+## 🎨 Architecture
+
+### Modular JavaScript Structure
+
+The JavaScript is organized into 4 main modules:
+
+1. **config.js** - Configuration and constants
+   - Animation settings
+   - Grid parameters
+   - Citation data
+   - DOM selectors
+   - Site metadata
+
+2. **utils.js** - Utility functions
+   - Event bus for component communication
+   - Safe DOM manipulation
+   - Animation helpers
+   - Intersection Observer wrappers
+   - Storage management
+
+3. **components.js** - Core UI components
+   - `NavigationManager` - Mobile menu, smooth scrolling, active highlighting
+   - `ThemeManager` - Dark/light mode with persistence
+   - `GridAnimationManager` - Interactive grid background
+
+4. **app.js** - Application logic
+   - `HeroAnimations` - Hero section entrance animations
+   - `ScrollAnimations` - Scroll-triggered section animations
+   - `CardAnimations` - Hover effects for cards
+   - `StatsAnimations` - Chart and statistics animations
+   - `CitationChart` - Citation data visualization
+   - `App` - Main application initialization
+
+### Component Communication
+
+Components communicate via an event bus pattern, reducing tight coupling:
+
+```javascript
+// Emit events
+EventBus.emit('theme:changed', { theme: 'dark' });
+
+// Listen to events
+EventBus.on('theme:changed', (data) => {
+    console.log('Theme changed to:', data.theme);
+});
+```
+
+### Design Patterns
+
+- **Module Pattern**: ES6 modules for encapsulation
+- **Observer Pattern**: Event bus for loose coupling
+- **Utility Functions**: DRY principle for common operations
+- **Configuration Object**: Centralized settings management
+- **Defensive Programming**: Safe DOM queries with error handling
+
+## 🎯 Key Features Explained
+
+### Interactive Grid Background
+
+Mouse proximity detection creates a dynamic grid effect:
+- Tiles respond to cursor position
+- RAF-throttled for smooth performance
+- Responsive to window resizing
+- Configurable proximity distances
+
+### Theme Management
+
+Smart theme system with multiple sources:
+- User preference (localStorage)
+- System preference (prefers-color-scheme)
+- Manual toggle with smooth transitions
+- Cross-tab synchronization
+
+### Scroll Animations
+
+Performant scroll-triggered animations:
+- Intersection Observer API (no scroll listeners)
+- Staggered entrance animations
 - Parallax effects
+- Responsive thresholds
 
-### Colors and Theming
+### Citation Chart
 
-The website uses a carefully selected color palette with teal as the primary accent:
+Data-driven visualization:
+- Configuration-based data source
+- Animated bar charts
+- Hover tooltips
+- Responsive design
 
-- **Primary Teal**: `#14b8a6` (used for links, buttons, accents)
-- **Background**: Gradient from teal-50 to blue-50
-- **Text**: Various shades of gray for hierarchy
+## 🔧 Development
 
-To change the color scheme, modify the Tailwind config in the HTML head section.
+### Adding New Features
 
-### Animations
+1. **Add configuration** to `js/config.js`
+2. **Create utilities** in `js/utils.js` if needed
+3. **Build component** in `js/components.js` or `js/app.js`
+4. **Initialize** in the App class
 
-Animations are powered by anime.js and include:
+### Code Style
 
-- **Hero section**: Staggered fade-in animations for title, subtitle, and social links
-- **Scroll animations**: Sections fade in as they enter viewport
-- **Card interactions**: Subtle hover effects with scale transforms
-- **Timeline**: Sequential animation of timeline items
-- **Navigation**: Smooth scrolling between sections
+- Use ES6+ features (arrow functions, destructuring, template literals)
+- Follow event-driven architecture
+- Emit events for major state changes
+- Use utility functions for common operations
+- Add JSDoc comments for complex functions
 
-### Dark/Light Mode
+### Performance Tips
 
-The website features a sophisticated dark/light mode system:
+- Use `rafThrottle` for scroll/mouse handlers
+- Leverage Intersection Observer for visibility detection
+- Minimize DOM queries with caching
+- Use CSS animations where possible
+- Debounce expensive operations
 
-- **Theme Toggle**: Elegant toggle button in the navigation (both desktop and mobile)
-- **System Preference Detection**: Automatically detects user's system theme preference
-- **Local Storage**: Remembers user's theme choice across sessions
-- **Smooth Transitions**: Animated theme switching with anime.js
-- **Comprehensive Coverage**: All elements properly styled for both themes
+## 📦 Refactoring Summary
 
-#### Color Schemes
+### What Changed (November 2025)
 
-**Light Mode:**
+**From**: 5 separate JavaScript files with duplicated code and tight coupling
+**To**: 3 modular ES6 files with clean architecture
 
-- Background: Soft gradient from teal-50 to blue-50
-- Text: Various shades of gray for proper hierarchy
-- Cards: White backgrounds with subtle shadows
-- Accents: Teal-600 for interactive elements
+#### File Consolidation
+- ❌ `main.js` (85 lines)
+- ❌ `theme.js` (105 lines)
+- ❌ `grid-animation.js` (113 lines)
+- ❌ `animations.js` (203 lines)
+- ❌ `citations.js` (74 lines)
+- ✅ `config.js` (122 lines) - NEW
+- ✅ `utils.js` (330 lines) - NEW
+- ✅ `components.js` (380 lines) - Consolidated 3 files
+- ✅ `app.js` (380 lines) - Consolidated 2 files
 
-**Dark Mode:**
+#### Improvements
+- **Configuration Centralized**: All magic numbers and settings in one place
+- **Utilities Extracted**: 20+ reusable functions for DRY code
+- **Event Bus Added**: Decoupled component communication
+- **Error Handling**: Safe DOM queries with fallbacks
+- **Icons Modernized**: 12 inline SVGs replaced with Tabler Icons
+- **Module Pattern**: ES6 imports/exports for better organization
+- **Performance**: RAF throttling and debouncing optimized
 
-- Background: Deep gradient from slate-900 to slate-800
-- Text: Light grays and whites for readability
-- Cards: Dark gray backgrounds with enhanced shadows
-- Accents: Teal-400 for better contrast in dark theme
+#### Benefits
+- **Maintainability**: Clear separation of concerns
+- **Readability**: Self-documenting code with proper naming
+- **Testability**: Pure functions and dependency injection ready
+- **Extensibility**: Easy to add new features
+- **Performance**: Optimized event handling and animations
 
-### Adding New Sections
+## 📱 Browser Support
 
-To add a new section:
+- Chrome/Edge (latest)
+- Firefox (latest)
+- Safari (latest)
+- Mobile browsers (iOS Safari, Chrome Mobile)
 
-1. Add HTML structure following existing patterns
-2. Include appropriate `id` attribute for navigation
-3. Add navigation link to the menu
-4. Apply `.section-fade` class for scroll animations
-5. Update mobile menu if needed
+## 📄 License
 
-### SEO Optimization
+MIT License - See LICENSE file for details
 
-The website includes:
+## 👤 Author
 
-- Semantic HTML structure
-- Open Graph meta tags
-- Proper heading hierarchy
-- Alt text for images
-- Structured data ready markup
+**Simone Conia**
+- Website: https://c-simone.github.io
+- Google Scholar: https://scholar.google.com/citations?user=5C4gTY4AAAAJ
+- LinkedIn: https://linkedin.com/in/simone-conia
+- GitHub: https://github.com/simone-conia
 
-## Browser Support
+## 🙏 Credits
 
-- Modern browsers (Chrome, Firefox, Safari, Edge)
-- Responsive design for mobile devices
-- Graceful degradation for older browsers
-
-## Dependencies
-
-All dependencies are loaded via CDN:
-
-- **Tailwind CSS**: v3.x (latest)
-- **Anime.js**: v3.2.1
-- **Inter Font**: Google Fonts
-
-## Performance
-
-- Fast loading with CDN resources
-- Optimized images and fonts
-- Minimal JavaScript footprint
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## Contributing
-
-Feel free to submit issues and enhancement requests!
-
-## Contact
-
-For questions about this template, please reach out via the contact information on the website.
+- **Tailwind CSS** - Utility-first CSS framework
+- **anime.js** - Animation library
+- **Tabler Icons** - Icon set
+- **Urbanist Font** - Typography
 
 ---
 
-**Note**: Remember to replace placeholder content with your actual information before deploying!
+**Last Updated**: November 22, 2025  
+**Version**: 2.0 (Refactored Architecture)
