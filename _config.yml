@@ -19,6 +19,9 @@ site:
   version: "2.0"
   last_updated: "2025-11-22"
 
+# Analytics (Google Analytics 4)
+# google_analytics: "G-XXXXXXXXXX"  # Uncomment and add your GA4 tracking ID
+
 # Author information
 author: 
   name: Simone Conia

@@ -64,7 +64,7 @@ check_css() {
 check_js() {
     echo "📜 Checking JavaScript files..."
     
-    js_files=("js/main.js" "js/theme.js" "js/grid-animation.js" "js/animations.js")
+    js_files=("js/app.js" "js/components.js" "js/config.js" "js/utils.js")
     
     for file in "${js_files[@]}"; do
         if [ -f "$file" ]; then
