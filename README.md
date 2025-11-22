@@ -29,7 +29,7 @@ A modern, minimal academic website built with Tailwind CSS and anime.js, designe
 
 ## Live Demo
 
-Visit the live website: [Your GitHub Pages URL will be here]
+Visit the live website: [https://c-simone.github.io/](https://c-simone.github.io/)
 
 ## Quick Setup
 
