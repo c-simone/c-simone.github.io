@@ -185,30 +185,7 @@ body {
         linear-gradient(90deg, rgba(20, 184, 166, 0.2) 1px, transparent 1px);
 }
 
-.grid-trail {
-    position: absolute;
-    width: 2px;
-    height: 200px;
-    background: linear-gradient(to bottom, transparent, rgba(20, 184, 166, 0.8), transparent);
-    border-radius: 1px;
-    opacity: 0;
-}
 
-.dark .grid-trail {
-    background: linear-gradient(to bottom, transparent, rgba(20, 184, 166, 1), transparent);
-    box-shadow: 0 0 10px rgba(20, 184, 166, 0.5);
-}
-
-.grid-trail-horizontal {
-    width: 200px;
-    height: 2px;
-    background: linear-gradient(to right, transparent, rgba(20, 184, 166, 0.8), transparent);
-}
-
-.dark .grid-trail-horizontal {
-    background: linear-gradient(to right, transparent, rgba(20, 184, 166, 1), transparent);
-    box-shadow: 0 0 10px rgba(20, 184, 166, 0.5);
-}
 
 /* Grid Tiles for Mouse Proximity Effect */
 .grid-tile {

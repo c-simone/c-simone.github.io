@@ -89,69 +89,12 @@ function initGridAnimation() {
     
     // Initialize grid tiles
     createGridTiles();
-    
-    // Create trail animation
-    function createTrail() {
-        const isHorizontal = Math.random() > 0.5;
-        const trail = document.createElement('div');
-        
-        if (isHorizontal) {
-            trail.className = 'grid-trail-horizontal';
-            const row = Math.floor(Math.random() * rows);
-            const startCol = -1;
-            
-            trail.style.left = `${startCol * gridSize}px`;
-            trail.style.top = `${row * gridSize + gridSize/2 - 1}px`;
-            
-            gridContainer.appendChild(trail);
-            
-            anime({
-                targets: trail,
-                left: `${windowWidth + gridSize}px`,
-                opacity: [0, 1, 0],
-                duration: 2000 + Math.random() * 1000,
-                easing: 'easeInOutQuad',
-                complete: function() {
-                    if (trail.parentNode) {
-                        trail.parentNode.removeChild(trail);
-                    }
-                }
-            });
-        } else {
-            trail.className = 'grid-trail';
-            const col = Math.floor(Math.random() * columns);
-            const startRow = -1;
-            
-            trail.style.left = `${col * gridSize + gridSize/2 - 1}px`;
-            trail.style.top = `${startRow * gridSize}px`;
-            
-            gridContainer.appendChild(trail);
-            
-            anime({
-                targets: trail,
-                top: `${windowHeight + gridSize}px`,
-                opacity: [0, 1, 0],
-                duration: 2000 + Math.random() * 1000,
-                easing: 'easeInOutQuad',
-                complete: function() {
-                    if (trail.parentNode) {
-                        trail.parentNode.removeChild(trail);
-                    }
-                }
-            });
-        }
-    }
-    
-    // Start animations with varying intervals
-    const trailInterval = setInterval(createTrail, 800 + Math.random() * 400);
-    
+
     // Handle window resize
-    window.addEventListener('resize', function() {
-        clearInterval(trailInterval);
-        
+    window.addEventListener('resize', function () {
         // Clear existing elements
-        const trails = gridContainer.querySelectorAll('.grid-trail, .grid-trail-horizontal, .grid-pulse, .grid-tile');
-        trails.forEach(trail => trail.remove());
+        const tiles = gridContainer.querySelectorAll('.grid-tile');
+        tiles.forEach(tile => tile.remove());
         
         // Restart animation with new dimensions
         setTimeout(initGridAnimation, 100);
@@ -159,6 +102,6 @@ function initGridAnimation() {
     
     // Clean up on page unload
     window.addEventListener('beforeunload', function() {
-        clearInterval(trailInterval);
+        // No intervals to clear
     });
 }

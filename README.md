@@ -161,7 +161,6 @@ personal-website/
 
 - Interactive grid background system
 - Mouse proximity effects
-- Animated trails and pulses
 - Performance-optimized animations
 - Responsive grid resizing
 
