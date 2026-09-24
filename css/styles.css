@@ -82,6 +82,7 @@ p {
 .hero-description,
 .biography p,
 .research-item p,
+.startup-research-copy p,
 .publication-body p:not(.authors),
 .experience-row p:last-child,
 .contact-interests ul {
@@ -851,6 +852,34 @@ a[target="_blank"]:focus-visible {
 }
 .research-section {
   background: #e9e9df55;
+}
+.startup-research {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+  margin: 48px 0 0 58px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+.startup-research h3 {
+  margin-top: 12px;
+  font-size: 31px;
+}
+.startup-research-copy p {
+  margin: 0 0 16px;
+  font-size: 16px;
+  line-height: 1.85;
+}
+.startup-research-copy p a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+@media (max-width: 760px) {
+  .startup-research {
+    grid-template-columns: 1fr;
+    margin-left: 0;
+    gap: 20px;
+  }
 }
 .research-grid {
   display: grid;
