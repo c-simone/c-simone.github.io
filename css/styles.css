@@ -97,9 +97,38 @@ button:focus-visible {
   outline-offset: 6px;
   border-radius: 2px;
 }
-a[target="_blank"] span[aria-hidden] {
-  font-family: var(--sans);
-  font-size: 0.8em;
+/* SVG strokes stay monochrome on every platform, including mobile. */
+.link-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex: none;
+  vertical-align: -0.12em;
+  pointer-events: none;
+}
+a > .external-icon,
+.back-top > .link-icon {
+  margin-inline-start: 0.3em;
+}
+a[target="_blank"] {
+  text-decoration: underline;
+  text-decoration-color: var(--stone);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+}
+a[target="_blank"]:focus-visible {
+  text-decoration-color: currentColor;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }
 .container {
   width: min(1200px, calc(100% - 112px));
@@ -232,7 +261,7 @@ a[target="_blank"] span[aria-hidden] {
   left: 0;
   right: 0;
   bottom: -4px;
-  height: 7px;
+  height: 1px;
   background: var(--blue);
   opacity: 0.45;
   transform: scaleX(0);
@@ -319,7 +348,7 @@ a[target="_blank"] span[aria-hidden] {
 .text-link {
   position: relative;
   display: inline-flex;
-  gap: 18px;
+  gap: 10px;
   align-items: center;
   font-size: 12px;
 }
@@ -399,7 +428,7 @@ a[target="_blank"] span[aria-hidden] {
   height: 19px;
   flex: none;
 }
-.hero-actions .text-link .hero-arrow {
+.hero-actions .text-link .external-icon {
   width: 17px;
   height: 17px;
 }
@@ -1042,6 +1071,9 @@ footer {
   white-space: nowrap;
 }
 @media (hover: hover) and (pointer: fine) {
+  a[target="_blank"]:hover {
+    text-decoration-color: currentColor;
+  }
   .nav-link:hover::after,
   .text-link:hover::after,
   .hero-socials a:hover::after,
@@ -1531,4 +1563,12 @@ footer {
     bottom: -40px;
     opacity: 0.2;
   }
+}
+
+/* Compact trailing indicators remain secondary to social brand icons. */
+.hero-socials .external-icon {
+  width: 12px;
+  height: 12px;
+  margin-inline-start: 0;
+  color: currentColor;
 }
