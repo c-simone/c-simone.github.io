@@ -1,7 +1,7 @@
 baseurl: ""
 url: "https://c-simone.github.io"
-title: "Simone Conia | Founder & CEO | AI, NLP & Large Language Models"
-description: "Personal website of Simone Conia, Founder & CEO specializing in Artificial Intelligence, Natural Language Processing, and Large Language Models. Formerly Assistant Professor at Sapienza University of Rome and Research Scientist at Apple."
+title: "Simone Conia | AI & NLP Researcher, Founder & CEO"
+description: "Simone Conia, Founder & CEO of Principled Intelligence. Research in trustworthy AI, large language models, multilingual NLP, and retrieval augmented generation."
 
 # Build settings
 markdown: kramdown
@@ -40,5 +40,5 @@ social:
 # SEO settings
 twitter:
   username: ConiaSimone
-  card: summary_large_image
+  card: summary
 
