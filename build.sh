@@ -31,11 +31,11 @@ start_dev_server() {
 validate_html() {
     echo "🔍 Validating HTML structure..."
     
-    if command -v tidy &> /dev/null; then
-        tidy -q -e index.html
+    if command -v tidy &> /dev/null && tidy -v 2>&1 | grep -q "HTML5"; then
+        tidy -utf8 -q -e index.html
         echo "✅ HTML validation complete"
     else
-        echo "⚠️  HTML Tidy not found. Skipping HTML validation."
+        echo "⚠️  HTML5-compatible Tidy not found. Skipping HTML validation."
         echo "   Install with: brew install tidy-html5 (macOS) or apt-get install tidy (Linux)"
     fi
 }
@@ -64,11 +64,14 @@ check_css() {
 check_js() {
     echo "📜 Checking JavaScript files..."
     
-    js_files=("js/app.js" "js/components.js" "js/config.js" "js/utils.js")
+    js_files=("js/app.js" "js/components.js" "js/config.js" "js/citation-chart.js")
     
     for file in "${js_files[@]}"; do
         if [ -f "$file" ]; then
             echo "✅ JavaScript file found: $file"
+            if command -v node &> /dev/null; then
+                node --input-type=module --check < "$file"
+            fi
         else
             echo "❌ JavaScript file not found: $file"
             exit 1
@@ -82,19 +85,19 @@ check_js() {
 optimize_images() {
     echo "🖼️  Checking images..."
     
-    if [ -f "assets/profile_pic.jpg" ]; then
+    if [ -f "assets/profile_pic.jpeg" ]; then
         echo "✅ Profile image found"
         
         # Check image size
-        file_size=$(du -h "assets/profile_pic.jpg" | cut -f1)
+        file_size=$(du -h "assets/profile_pic.jpeg" | cut -f1)
         echo "📊 Profile image size: $file_size"
         
         if command -v identify &> /dev/null; then
-            dimensions=$(identify -format "%wx%h" "assets/profile_pic.jpg")
+            dimensions=$(identify -format "%wx%h" "assets/profile_pic.jpeg")
             echo "📐 Profile image dimensions: $dimensions"
         fi
     else
-        echo "⚠️  Profile image not found: assets/profile_pic.jpg"
+        echo "⚠️  Profile image not found: assets/profile_pic.jpeg"
     fi
     
     if [ -f "favicon.svg" ]; then
