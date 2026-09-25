@@ -364,23 +364,34 @@ a[target="_blank"]:focus-visible {
 }
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  align-content: center;
+  row-gap: 30px;
+  padding-block: clamp(48px, 6vh, 80px);
+  text-align: center;
   flex: 1;
   position: relative;
 }
 .hero-copy {
-  padding-block: 88px 96px;
+  width: min(100%, 560px);
   position: relative;
   z-index: 3;
 }
 .hero h1 {
-  font-size: clamp(85px, 8.8vw, 126px);
-  line-height: 0.87;
+  width: fit-content;
+  margin: 0 auto 32px;
+  font-size: clamp(96px, 10.5vw, 144px);
+  line-height: 0.83;
   letter-spacing: -0.055em;
-  margin: 0 0 33px;
+}
+.hero h1 > span {
+  display: block;
+  padding-right: 0.42em;
 }
 .hero h1 em {
+  display: block;
+  padding-left: 0.6em;
   font-weight: 400;
 }
 .hero-role {
@@ -394,27 +405,43 @@ a[target="_blank"]:focus-visible {
 .hero-description {
   font-size: 15px;
   line-height: 1.85;
-  max-width: 370px;
-  margin-top: 18px;
+  max-width: 420px;
+  margin: 16px auto 0;
+}
+.hero-links {
+  position: relative;
+  z-index: 3;
+  align-self: center;
+  justify-self: center;
+  width: min(100%, 360px);
 }
 .hero-actions {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  margin-top: 29px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.hero-actions .button {
+  justify-content: space-between;
+  min-height: 50px;
+  padding: 12px 22px;
+  gap: 16px;
+}
+.hero-actions .button:focus-visible {
+  border-radius: 100px;
 }
 .hero-socials {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
-  margin-top: 52px;
+  justify-content: center;
+  gap: 8px 24px;
+  margin-top: 18px;
 }
 .hero-socials a {
   position: relative;
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  min-height: 30px;
+  min-height: 44px;
   font-size: 11px;
   color: var(--muted);
 }
@@ -429,7 +456,7 @@ a[target="_blank"]:focus-visible {
   height: 19px;
   flex: none;
 }
-.hero-actions .text-link .external-icon {
+.hero-actions .external-icon {
   width: 17px;
   height: 17px;
 }
@@ -440,7 +467,7 @@ a[target="_blank"]:focus-visible {
   object-fit: contain;
   left: -80px;
   bottom: -200px;
-  opacity: 0.36;
+  opacity: 0.24;
   mix-blend-mode: multiply;
   z-index: -1;
   transform: scaleX(-1);
@@ -457,6 +484,8 @@ a[target="_blank"]:focus-visible {
   z-index: -1;
 }
 .hero-art {
+  /* Temporarily hide the portrait and its surrounding artwork together. */
+  display: none;
   position: relative;
   width: min(490px, 92%);
   aspect-ratio: 1;
@@ -471,6 +500,8 @@ a[target="_blank"]:focus-visible {
   mix-blend-mode: multiply;
 }
 .portrait {
+  /* Temporarily hide the profile picture; keep it available to restore. */
+  display: none;
   position: absolute;
   width: 67%;
   height: 67%;
@@ -527,7 +558,8 @@ a[target="_blank"]:focus-visible {
 .hero-bottom {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
+  max-width: 240px;
   padding-block: 21px;
   border-top: 1px solid var(--line);
   font-size: 9px;
@@ -1166,13 +1198,6 @@ footer {
   .contact-grid {
     gap: 40px;
   }
-  .hero-actions {
-    gap: 20px;
-  }
-  .hero-actions .button {
-    padding-inline: 20px;
-    gap: 16px;
-  }
   .art-caption {
     bottom: -30px;
   }
@@ -1238,9 +1263,12 @@ footer {
   }
   .hero-grid {
     grid-template-columns: 1fr;
+    align-content: center;
+    row-gap: 28px;
+    padding-block: 48px 52px;
   }
-  .hero-copy {
-    padding: 54px 0 0;
+  .hero-links {
+    width: min(100%, 360px);
   }
   .hero h1 {
     font-size: 98px;
@@ -1250,16 +1278,22 @@ footer {
     font-size: 13px;
   }
   .hero-description {
-    max-width: 380px;
+    max-width: 360px;
     font-size: 14px;
   }
   .hero-actions {
-    margin-top: 24px;
-    gap: 24px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .hero-actions .button {
+    min-height: 50px;
+    padding-inline: 18px;
+    gap: 10px;
+    font-size: 11px;
   }
   .hero-socials {
-    margin-top: 28px;
-    gap: 23px;
+    margin-top: 18px;
+    gap: 8px 16px;
   }
   .hero-art {
     width: min(420px, 95%);
@@ -1439,25 +1473,15 @@ footer {
   .hero h1 {
     font-size: 84px;
   }
-  .hero-actions {
-    gap: 15px;
-  }
   .hero-actions .button {
-    font-size: 10px;
-    padding-inline: 16px;
-    gap: 12px;
-  }
-  .hero-actions .text-link {
-    font-size: 10px;
+    padding-inline: 14px;
     gap: 8px;
   }
   .hero-role {
-    font-size: 11px;
+    font-size: 12px;
   }
   .hero-socials {
-    display: grid;
-    grid-template-columns: repeat(2, max-content);
-    gap: 10px 24px;
+    column-gap: 12px;
   }
   .art-caption {
     font-size: 9px;
